@@ -1,0 +1,2 @@
+[serve]
+exec="cd site && python -m SimpleHTTPServer 8888"
