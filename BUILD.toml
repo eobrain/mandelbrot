@@ -1,2 +1,7 @@
 [serve]
+deps=["site/index.html"]
 exec="cd site && python -m SimpleHTTPServer 8888"
+
+["site/index.html"]
+deps=["src/index.haml"]
+exec="haml $< $@"
