@@ -1,5 +1,17 @@
 !!! html
 %html
+    - $nextCount = 0
+    - def mandelbrot(_hamlout, c, text)
+        - $nextCount = $nextCount + 1
+        - id = "mn-i#{$nextCount}"
+        %figure
+            %label.margin-toggle(for="#{id}") &#8853;
+            %input.margin-toggle(id="#{id}" type="checkbox")
+            %span.marginnote
+                %img(src="img/video_#{c}.gif" alt="#{text}")
+                %p #{text}
+            %a(href="img/1920x1080_#{c}.png")
+                %img(src="img/770x433_#{c}.png" alt="#{text}")
 %head
     %meta(charset="utf-8")
     %title Exploring the Mandelbrot Set
@@ -19,9 +31,9 @@
                 %a(href="https://github.com/eobrain/almondbread") almondbread software
                 \.
             %p
-                Look to the right margin
+                Look 
                 %label.margin-toggle(for="mn-demo")
-                \(on a computer) or click the &#8853;(on a phone)
+                    \(click the &#8853;)
                 %input#mn-demo.margin-toggle(type="checkbox")
                 %span.marginnote
                     \... to see a zooming videos showing the location on the
@@ -29,30 +41,20 @@
                 \...
             %p
                 Click on the image to view a full-resolution version of the
-                image, suitable(for example) as a video conferencing
+                image, suitable (for example) as a video conferencing
                 background.
-
-        %figure
-            - c = "-0.5963609417279565_0.662749640395244_4.76837158203125e-7_100000"
-            - text = "-0.596360941 + i0.662749640"
-            %label.margin-toggle(for="mn-i1") &#8853;
-            %input#mn-i1.margin-toggle(type="checkbox")
-            %span.marginnote
-                %img(src="img/video_#{c}.gif" alt="#{text}") #{text}
-            %a(href="img/mandelbrot_#{c}.png")
-                %img(src="img/mandelbrot_#{c}.png" alt="#{text}")
-
-        %figure
-            - c = "-0.596360784631783_0.662749653789278_5e-12_1000000"
-            - text = "-0.59636078463178 + i0.66274965378928"
-            %label.margin-toggle(for="mn-i2") &#8853;
-            %input#mn-i2.margin-toggle(type="checkbox")
-            %span.marginnote
-                %img(src="img/video_#{c}.gif" alt="#{text}") #{text}
-            %a(href="img/mandelbrot_#{c}.png")
-                %img(src="img/mandelbrot_#{c}.png" alt="#{text}")
-
-
+        - mandelbrot(_hamlout,
+            "-0.5963609417279565_0.662749640395244_4.76837158203125e-7_100000",
+            "-0.596360941 + i0.662749640")
+        - mandelbrot(_hamlout,
+            "-0.596360784631783_0.662749653789278_5e-12_1000000",
+            "-0.59636078463178 + i0.66274965378928")
+        - mandelbrot(_hamlout,
+            "0.43245668411436744_-0.34053226446030754_2e-10_100000",
+            "0.432456684114 - i0.340532264460")
+        - mandelbrot(_hamlout,
+            "-0.16089413126577512_1.0376191282366105_4.547473508864641e-13_100000",
+            "-0.16089413126577512 + i1.0376191282366105")
 
         %p(xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/")
             %a(property="dct:title" rel="cc:attributionURL" href="https://mandelbrot.dev") mandelbrot.dev web site
