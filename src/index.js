@@ -61,7 +61,7 @@ console.log(html(() =>
                         label('.margin-toggle', { for: 'mn-demo' }, () => '(click the &#8853;)') +
                         input('#mn-demo.margin-toggle', { type: 'checkbox' }) +
                         span('.marginnote', () =>
-                            `... to see a zooming videos showing the location
+                            `... to see zooming videos showing the location
                            on the complex plane of the image.`
                         ) +
                         '...'
@@ -90,20 +90,20 @@ console.log(html(() =>
                   }
                 }, () =>
                   a({ property: 'dct:title', rel: 'cc:attributionURL', href: 'https://mandelbrot.dev' }) +
-                    'mandelbrot.dev web site by' +
+                    'mandelbrot.dev website by ' +
                     a({
                       rel: 'cc:attributionURL dct:creator',
                       property: 'cc:attributionName',
                       href: 'https://twitter.com/eob'
                     }, () => "Eamonn O'Brien-Strain") +
-                    'is licensed under' +
+                    ' is licensed under' +
                     a({
                       href: 'http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1',
                       target: '_blank',
                       rel: 'license noopener noreferrer',
                       style: 'display:inline-block;'
                     }) +
-                    'CC BY-NC-ND 4.0' +
+                    ' CC BY-NC-ND 4.0 ' +
                     img({
                       style: 'height:22px!important;margin-left:3px;vertical-align:text-bottom;',
                       src: 'https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1'
