@@ -1,0 +1,23 @@
+{
+  "name": "mandelbrot",
+  "version": "0.0.2",
+  "description": "Source for mandelbrot.dev web site",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eobrain/mandelbrot.git"
+  },
+  "author": "Eamonn O'Brien-Strain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eobrain/mandelbrot/issues"
+  },
+  "homepage": "https://github.com/eobrain/mandelbrot#readme",
+  "devDependencies": {
+    "bajel": "^1.1.0"
+  }
+}
