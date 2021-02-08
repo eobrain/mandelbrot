@@ -14,8 +14,10 @@ import {
   p,
   script,
   section,
+  source,
   span,
-  title
+  title,
+  video
 } from './html.js'
 
 let nextCount = 0
@@ -26,7 +28,10 @@ const mandelbrot = (c, text) => {
     label('.margin-toggle', { for: id }, () => '&#8853;') +
     input('.margin-toggle', { id, type: 'checkbox' }) +
     span('.marginnote', () =>
-      img({ src: `img/video_${c}.gif`, alt: text }) +
+      video({ autoplay: true, loop: true, muted: true, width: '256' }, () =>
+        source({ src: `img/256x144_${c}.mp4`, type: 'video/mp4' }) +
+        img({ src: `img/video_${c}.gif`, alt: text })
+      ) +
       p(() => text)
     ) +
     a({ href: `img/1920x1080_${c}.png` }, () =>
