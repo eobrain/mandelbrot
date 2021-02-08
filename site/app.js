@@ -13,10 +13,19 @@ const isElementInViewport = el => {
 }
 
 const showVisible = () => {
-  document.querySelectorAll('img[data-defer]').forEach((img) => {
-    if (isElementInViewport(img)) {
-      img.src = img.dataset.defer
-      img.removeAttribute('data-defer')
+  document.querySelectorAll('img[data-defer]').forEach(el => {
+    if (isElementInViewport(el)) {
+      el.src = el.dataset.defer
+      el.removeAttribute('data-defer')
+    }
+  })
+  document.querySelectorAll('video >source[data-defer]').forEach(el => {
+    if (isElementInViewport(el)) {
+      el.src = el.dataset.defer
+      el.removeAttribute('data-defer')
+      const video = el.parentElement
+      video.load()
+      video.play()
     }
   })
 }

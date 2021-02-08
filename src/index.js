@@ -38,7 +38,7 @@ const mandelbrot = (c, text) => {
   return figure(() =>
     marginNote(() =>
       video({ autoplay: true, loop: true, muted: true, width: 256 }, () =>
-        source({ src: `img/256x144_${c}.mp4`, type: 'video/mp4' })
+        source({ 'data-defer': `img/256x144_${c}.mp4`, type: 'video/mp4' })
       ) +
       p(() => text)
     ) +
