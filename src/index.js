@@ -20,6 +20,7 @@ import {
   video
 } from './html.js'
 
+const PLACEHOLDER = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
 let nextCount = 0
 const marginNote = content => {
   ++nextCount
@@ -42,7 +43,7 @@ const mandelbrot = (c, text) => {
       p(() => text)
     ) +
     a({ href: `img/1920x1080_${c}.png` }, () =>
-      img({ src: `img/770x433_${c}.png`, width: 770, height: 'auto', alt: text })
+      img({ 'data-defer': `img/770x433_${c}.png`, src: PLACEHOLDER, width: 770, height: 'auto', alt: text })
     )
   )
 }
