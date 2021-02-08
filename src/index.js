@@ -28,14 +28,13 @@ const mandelbrot = (c, text) => {
     label('.margin-toggle', { for: id }, () => '&#8853;') +
     input('.margin-toggle', { id, type: 'checkbox' }) +
     span('.marginnote', () =>
-      video({ autoplay: true, loop: true, muted: true, width: '256' }, () =>
-        source({ src: `img/256x144_${c}.mp4`, type: 'video/mp4' }) +
-        img({ src: `img/video_${c}.gif`, alt: text })
+      video({ autoplay: true, loop: true, muted: true, width: 256 }, () =>
+        source({ src: `img/256x144_${c}.mp4`, type: 'video/mp4' })
       ) +
       p(() => text)
     ) +
     a({ href: `img/1920x1080_${c}.png` }, () =>
-      img({ src: `img/770x433_${c}.png`, alt: text })
+      img({ src: `img/770x433_${c}.png`, width: 770, height: 'auto', alt: text })
     )
   )
 }

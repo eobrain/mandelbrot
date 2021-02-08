@@ -26,7 +26,7 @@ const attributes = args => {
         // ignore
         break
       default:
-        throw new Error(`"${arg}" is ${typeof arg} but must be object, string, or functon`)
+        throw new Error(`"${arg}" is ${typeof arg} but must be object, string, or function`)
     }
   }
   let result = ''
@@ -38,6 +38,9 @@ const attributes = args => {
         result += ` ${key}=${quote}${value}${quote}`
         break
       }
+      case 'number':
+        result += ` ${key}="${value}"`
+        break
       case 'boolean':
         if (value) {
           result += ` ${key}`
@@ -52,6 +55,9 @@ const attributes = args => {
               result += ` ${key}:${subKey}=${quote}${subValue}${quote}`
               break
             }
+            case 'number':
+              result += ` ${key}="${value}"`
+              break
             case 'boolean':
               if (value) {
                 result += ` ${key}:${subKey}`
