@@ -20,10 +20,10 @@ const showVisible = () => {
     }
   })
   document.querySelectorAll('video >source[data-defer]').forEach(el => {
-    if (isElementInViewport(el)) {
+    const video = el.parentElement
+    if (isElementInViewport(video)) {
       el.src = el.dataset.defer
       el.removeAttribute('data-defer')
-      const video = el.parentElement
       video.load()
       video.play()
     }
