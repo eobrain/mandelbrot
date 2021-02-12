@@ -26,7 +26,7 @@ const attributes = args => {
         // ignore
         break
       default:
-        throw new Error(`"${arg}" is ${typeof arg} but must be object, string, or function`)
+        throw new Error(`"${arg}" is ${typeof arg} but must be object, string, or function (${JSON.stringify(args)})`)
     }
   }
   let result = ''
@@ -105,6 +105,7 @@ export const body = element('body', false)
 export const figure = element('figure', false)
 export const h1 = element('h1', false)
 export const h2 = element('h2', false)
+export const h3 = element('h3', false)
 export const head = element('head', false)
 export const html = element('html', false)
 export const img = element('img', true)
