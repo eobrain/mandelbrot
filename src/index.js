@@ -70,7 +70,13 @@ console.log('<!doctype html>' +
         type: 'text/javascript'
       }) +
       script({ src: 'https://polyfill.io/v3/polyfill.min.js?features=es6' }) +
-      script({ id: 'MathJax-script', async: true, src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' })
+      script({ id: 'MathJax-script', async: true, src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' }) +
+      meta({ name: 'twitter:card', content: 'summary' }) +
+      meta({ name: 'twitter:creator', content: '@eob' }) +
+      meta({ property: 'og:url', content: 'https://mandelbrot.dev/' }) +
+      meta({ property: 'og:title', content: 'Exploring the Mandelbrot Set' }) +
+      meta({ property: 'og:description', content: 'A showcase of Mandlebrot set images' }) +
+      meta({ property: 'og:image', content: 'https://mandelbrot.dev/img/770x433_-0.18271806444477842_0.6614075685543184_1.4551915228366852e-11_100000.png' })
     ) +
     body(() =>
       article(() =>
