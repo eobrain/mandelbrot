@@ -19,9 +19,10 @@ const showVisible = () => {
       el.removeAttribute('data-defer')
     }
   })
-  document.querySelectorAll('video >source[data-defer]').forEach(el => {
+  document.querySelectorAll('figure > .marginnote > video > source[data-defer]').forEach(el => {
     const video = el.parentElement
-    if (isElementInViewport(video)) {
+    const figure = video.parentElement.parentElement
+    if (isElementInViewport(figure)) {
       el.src = el.dataset.defer
       el.removeAttribute('data-defer')
       video.load()
