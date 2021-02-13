@@ -71,7 +71,7 @@ console.log('<!doctype html>' +
       }) +
       script({ src: 'https://polyfill.io/v3/polyfill.min.js?features=es6' }) +
       script({ id: 'MathJax-script', async: true, src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' }) +
-      meta({ name: 'twitter:card', content: 'summary' }) +
+      meta({ name: 'twitter:card', content: 'summary_large_image' }) +
       meta({ name: 'twitter:creator', content: '@eob' }) +
       meta({ property: 'og:url', content: 'https://mandelbrot.dev/' }) +
       meta({ property: 'og:title', content: 'Exploring the Mandelbrot Set' }) +
