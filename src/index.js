@@ -2,57 +2,26 @@ import {
   a,
   article,
   body,
-  em,
-  figure,
   h1,
   h2,
-  h3,
   head,
   html,
   img,
-  input,
-  label,
   link,
   meta,
   p,
   script,
   section,
-  source,
-  span,
-  title,
-  video
+  title
 } from './html.js'
 
-const PLACEHOLDER = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
-let nextCount = 0
-const marginNote = content => {
-  ++nextCount
-  const id = `mn-i${nextCount}`
-  return label('.margin-toggle', { for: id })('&#8853;') +
-    input('.margin-toggle', { id, type: 'checkbox' }) +
-    span('.marginnote')(content)
-}
-
-const newThought = content => span('.newthought')(content)
-
-const subTitle = content => p('.subtitle')(content)
-
-const i = x => em()(x)
-
-const mandelbrot = (c, location) => content => {
-  return figure()(
-    marginNote(
-      video({ autoplay: true, loop: true, muted: true, width: 256 })(
-        source({ 'data-defer': `img/256x144_${c}.mp4`, type: 'video/mp4' })
-      ) +
-      h3()(location) +
-      p()(content)
-    ) +
-    a({ href: `img/1920x1080_${c}.png` })(
-      img({ 'data-defer': `img/770x433_${c}.png`, src: PLACEHOLDER, width: 770, height: 'auto', alt: location })
-    )
-  )
-}
+import {
+  i,
+  marginNote,
+  mandelbrot,
+  newThought,
+  subTitle
+} from './custom.js'
 
 console.log('<!doctype html>' +
   html({ lang: 'en' })(
