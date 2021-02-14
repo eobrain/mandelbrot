@@ -14,7 +14,7 @@ import {
   script,
   section,
   title
-} from './html.js'
+} from 'ez-html-elements'
 
 import {
   marginNote,
