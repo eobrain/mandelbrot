@@ -1,46 +1,46 @@
-const idClassRe = /^(#([a-z-]+))?(\.[a-z-.]+)?$/
 
-const attributes = args => {
+const parseArgs = args => {
   let dict = {}
+  let classes = []
+  let content = ''
   for (const arg of args) {
     switch (typeof arg) {
       case 'object':
-        dict = { ...dict, ...arg }
-        break
-      case 'string': {
-        const match = arg.match(idClassRe)
-        if (!match) {
-          throw new Error(`"${arg} string is not in expected form of ${idClassRe}`)
-        }
-        const id = match[2]
-        if (id) {
-          dict.id = id
-        }
-        const classes = match[3]
-        if (classes) {
-          dict.class = classes.replaceAll('.', ' ')
+        if (Array.isArray(arg)) {
+          classes = [...classes, ...arg]
+        } else {
+          dict = { ...dict, ...arg }
         }
         break
-      }
+      case 'string':
+        content += arg
+        break
       default:
         throw new Error(`"${arg}" is ${typeof arg} but must be object or string (${JSON.stringify(args)})`)
     }
   }
-  let result = ''
+  if (classes.length > 0) {
+    if (dict.class) {
+      dict.class += ' ' + classes.join(' ')
+    } else {
+      dict.class = classes.join(' ')
+    }
+  }
+  let attributes = ''
   for (const key in dict) {
     const value = dict[key]
     switch (typeof value) {
       case 'string': {
         const quote = value.match(/"/) ? '\'' : '"'
-        result += ` ${key}=${quote}${value}${quote}`
+        attributes += ` ${key}=${quote}${value}${quote}`
         break
       }
       case 'number':
-        result += ` ${key}="${value}"`
+        attributes += ` ${key}="${value}"`
         break
       case 'boolean':
         if (value) {
-          result += ` ${key}`
+          attributes += ` ${key}`
         }
         break
       case 'object':
@@ -49,15 +49,15 @@ const attributes = args => {
           switch (typeof subValue) {
             case 'string': {
               const quote = subValue.match(/"/) ? '\'' : '"'
-              result += ` ${key}:${subKey}=${quote}${subValue}${quote}`
+              attributes += ` ${key}:${subKey}=${quote}${subValue}${quote}`
               break
             }
             case 'number':
-              result += ` ${key}="${value}"`
+              attributes += ` ${key}="${value}"`
               break
             case 'boolean':
               if (value) {
-                result += ` ${key}:${subKey}`
+                attributes += ` ${key}:${subKey}`
               }
               break
             default:
@@ -69,10 +69,21 @@ const attributes = args => {
         throw new Error(`${key}="${value}" is a ${typeof value}, but expecting string, Boolean, or object`)
     }
   }
-  return result
+  return { attributes, content }
 }
-const element = tag => (...args) => content => `<${tag}${attributes(args)}>${content}</${tag}>`
-const voidElement = tag => (...args) => `<${tag}${attributes(args)}>`
+
+const element = tag => (...args) => {
+  const { attributes, content } = parseArgs(args)
+  return `<${tag}${attributes}>${content}</${tag}>`
+}
+
+const voidElement = tag => (...args) => {
+  const { attributes, content } = parseArgs(args)
+  if (content) {
+    throw new Error(`<${tag}> is not allwed to have content`)
+  }
+  return `<${tag}${attributes}>`
+}
 
 export const a = element('a')
 export const article = element('article')
