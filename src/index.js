@@ -51,6 +51,14 @@ const mandelbrot = (c, location) => content => {
   )
 }
 
+// const MATHJAX_CONFIG = 'TeX-MML-AM_CHTML'
+// const MATHJAX_CONFIG = 'TeX-AMS-MML_HTMLorMML'
+// const MATHJAX_CONFIG = 'TeX-AMS_CHTML'
+const MATHJAX_CONFIG = 'TeX-AMS_SVG'
+// const MATHJAX_CONFIG = 'TeX-AMS_HTML'
+// const MATHJAX_CONFIG = 'MML_CHTML'
+// const MATHJAX_CONFIG = 'MML_SVG'
+
 console.log('<!doctype html>' +
   html({ lang: 'en' })(
     head()(
@@ -65,12 +73,11 @@ console.log('<!doctype html>' +
       link({ rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }) +
       link({ rel: 'manifest', href: '/site.webmanifest' }) +
       script({ src: 'app.js', defer: true })('') +
-      script({
-        src: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML',
-        type: 'text/javascript'
-      })('') +
       script({ src: 'https://polyfill.io/v3/polyfill.min.js?features=es6' })('') +
-      script({ id: 'MathJax-script', async: true, src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' })('') +
+      script({
+        src: `https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=${MATHJAX_CONFIG}`,
+        async: true
+      })('') +
       meta({ name: 'twitter:card', content: 'summary_large_image' }) +
       meta({ name: 'twitter:creator', content: '@eob' }) +
       meta({ property: 'og:url', content: 'https://mandelbrot.dev/' }) +
