@@ -2,7 +2,6 @@ import {
   a,
   article,
   body,
-  em,
   h1,
   h2,
   head,
@@ -13,7 +12,8 @@ import {
   p,
   script,
   section,
-  title
+  title,
+  v
 } from 'ez-html-elements'
 
 import {
@@ -23,8 +23,8 @@ import {
   subTitle
 } from './custom.js'
 
-const c = em('c')
-const z = em('z')
+const c = v('c')
+const z = v('z')
 
 console.log('<!doctype html>',
   html({ lang: 'en' },
@@ -67,14 +67,14 @@ console.log('<!doctype html>',
                 as a video conferencing background.`)),
         section(
           h2('What you are looking at'),
-          p(newThought('These are images') + ' of the space of complex numbers.'),
+          p(newThought('These are images'), ' of the space of complex numbers.'),
           p(
             'The black area is the Mandelbrot set itself, which are the values of the complex number ',
             c,
-            'such that if you repeatedly iterate ',
-            z + '←' + z + '²+' + c + ' starting at ' + z + '=0 the value of |' + z,
+            ' such that if you repeatedly iterate ',
+            z, '←', z, '²+', c, ' starting at ', z, '=0 the value of |', z,
             '| stays less than 2. The colored areas surrounding the black of the Mandelbrot set are values of ',
-            c + ' for which ' + z + ' eventually goes to infinity, with the colors indicating how many iterations until |' + z,
+            c, ' for which ', z, ' eventually goes to infinity, with the colors indicating how many iterations until |', z,
             '|>2'),
           p(`You will also notice a subtle shading which seems to show relief.
                    This is done by considering that the colored bands to be contours on a map
@@ -148,7 +148,7 @@ console.log('<!doctype html>',
               '0.250006',
               `Now we are at more than 8,000,000× magnification
             deep in the anus of the main beetle, right along the real axis
-            very close to the asymptotic ` + z + '=¼ point of the cardioid'),
+            very close to the asymptotic `, z, '=¼ point of the cardioid'),
             mandelbrot(
               '0.37001085813778134_0.6714354326948524_6e-8_100000',
               '0.37001085814 +i0.67143543269',
