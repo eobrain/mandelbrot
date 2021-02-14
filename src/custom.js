@@ -9,7 +9,7 @@ import {
   source,
   span,
   video
-} from './html.js'
+} from 'ez-html-elements'
 
 const PLACEHOLDER = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
 
@@ -24,7 +24,7 @@ export const marginNote = (...content) => {
 
 export const newThought = content => span(['newthought'], content)
 
-export const subTitle = content => p(['subtitle'], content)
+export const subTitle = (...content) => p(['subtitle'], ...content)
 
 export const mandelbrot = (c, location, ...content) => {
   return figure(

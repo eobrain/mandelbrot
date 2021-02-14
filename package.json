@@ -19,5 +19,8 @@
   "homepage": "https://github.com/eobrain/mandelbrot#readme",
   "devDependencies": {
     "bajel": "^1.1.0"
+  },
+  "dependencies": {
+    "ez-html-elements": "^0.0.1"
   }
 }
