@@ -22,11 +22,8 @@ const attributes = args => {
         }
         break
       }
-      case 'function':
-        // ignore
-        break
       default:
-        throw new Error(`"${arg}" is ${typeof arg} but must be object, string, or function (${JSON.stringify(args)})`)
+        throw new Error(`"${arg}" is ${typeof arg} but must be object or string (${JSON.stringify(args)})`)
     }
   }
   let result = ''
@@ -74,50 +71,39 @@ const attributes = args => {
   }
   return result
 }
+const element = tag => (...args) => content => `<${tag}${attributes(args)}>${content}</${tag}>`
+const voidElement = tag => (...args) => `<${tag}${attributes(args)}>`
 
-const content = args => {
-  let result = ''
-  for (const arg of args) {
-    switch (typeof arg) {
-      case 'object':
-        // ignore
-        break
-      case 'string':
-        // ignore
-        break
-      case 'function':
-        result += arg()
-        break
-      default:
-        throw new Error(`"${arg}" is ${typeof arg} but must be object, string, or functon`)
-    }
-  }
-  return result
-}
-const element = (tag, selfClosing) => (...args) =>
-  selfClosing
-    ? `<${tag}${attributes(args)}>`
-    : `<${tag}${attributes(args)}>${content(args)}</${tag}>`
+export const a = element('a')
+export const article = element('article')
+export const body = element('body')
+export const figure = element('figure')
+export const h1 = element('h1')
+export const h2 = element('h2')
+export const h3 = element('h3')
+export const head = element('head')
+export const html = element('html')
+export const label = element('label')
+export const p = element('p')
+export const script = element('script')
+export const section = element('section')
+export const span = element('span')
+export const style = element('style')
+export const title = element('title')
+export const video = element('video')
 
-export const a = element('a', false)
-export const article = element('article', false)
-export const body = element('body', false)
-export const figure = element('figure', false)
-export const h1 = element('h1', false)
-export const h2 = element('h2', false)
-export const h3 = element('h3', false)
-export const head = element('head', false)
-export const html = element('html', false)
-export const img = element('img', true)
-export const input = element('input', true)
-export const label = element('label', false)
-export const link = element('link', true)
-export const meta = element('meta', true)
-export const p = element('p', false)
-export const script = element('script', false)
-export const section = element('section', false)
-export const source = element('source', false)
-export const span = element('span', false)
-export const style = element('style', false)
-export const title = element('title', false)
-export const video = element('video', false)
+// All the self-closing elements
+export const area = voidElement('area')
+export const base = voidElement('base')
+export const br = voidElement('br')
+export const col = voidElement('col')
+export const embed = voidElement('embed')
+export const hr = voidElement('hr')
+export const img = voidElement('img')
+export const input = voidElement('input')
+export const link = voidElement('link')
+export const meta = voidElement('meta')
+export const param = voidElement('param')
+export const source = voidElement('source')
+export const track = voidElement('track')
+export const wbr = voidElement('wbr')
