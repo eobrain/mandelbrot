@@ -31,9 +31,9 @@ export const mandelbrot = (c, location, ...content) => {
     marginNote(
       video({ autoplay: true, loop: true, muted: true, width: 256 },
         source({ 'data-defer': `img/256x144_${c}.mp4`, type: 'video/mp4' })),
-      h3(location),
-      p(...content)),
+      h3(location)),
     a({ href: `img/1920x1080_${c}.png` },
       img({ 'data-defer': `img/770x433_${c}.png`, src: PLACEHOLDER, width: 770, height: 'auto', alt: location })
-    ))
+    ),
+    p(...content))
 }
