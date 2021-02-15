@@ -121,14 +121,14 @@ console.log('<!doctype html>',
             mandelbrot(
               '-0.7151815414428709_-0.23002815246582042_0.0001220703125_100000',
               '-0.715181 -i0.230028',
-              `Higher up on the shoulder at 8,000× magnification we find these two spirals
-                   trapping a beetle between them.) `),
+              'Higher up on the shoulder at 8,000× magnification we find these two spirals',
+              'trapping a beetle between them.'),
             mandelbrot(
               '-0.7452629166666667_-0.11304177083333333_0.0001_1000000',
               '-0.745263 -i0.113042',
-              `And even further up into the cleft between the head and body,
-            zooming in a bit to 10,000×
-            we find this beautifully symmetric pair of spirals around a beetle.`),
+              'And even further up into the cleft between the head and body,',
+              'zooming in a bit to 10,000×',
+              'we find this beautifully symmetric pair of spirals around a beetle.'),
             mandelbrot(
               '0.14886589182917292_0.6424077238777159_5e-7_100000',
               '0.148865892 +i0.642407724',
@@ -168,13 +168,19 @@ console.log('<!doctype html>',
             mandelbrot(
               '-1.6744096742808003_0.0000471655656125_1e-9_1000000',
               '-1.67440967428 +i0.00004716557',
-              `We're now at 1,000,000,000× (billion times!) magnification
-                  deep in the neck of a small beetle that is out on the proboscis of the main beetle`),
+              "We're now at 1,000,000,000× (billion times!) magnification",
+              'deep in the neck of a small beetle that is out on the proboscis of the main beetle'),
+            mandelbrot(
+              '0.022141191996343144_0.6524767128968962_9.313225746154785e-10_100000',
+              '0.022141191996 +i0.652476712897',
+              "We're now just a little beyond 1,000,000,000×  magnification",
+              'off the hips of the main beetle, down through several layers of radiating sunbursts.'
+            ),
             mandelbrot(
               '-0.13997533733903145_-0.9920762390921783_4.656612873077393e-10_1000000',
               '-0.139975337339 -i0.992076239092',
-              `Here we are deep (2,000,000,000×) within a filament off the main body
-                  passing several levels of beetle as we zoom down.`),
+              'Here we are deep (2,000,000,000×) within a filament off the main body',
+              'passing several levels of beetle as we zoom down.'),
             mandelbrot(
               '-0.7499888023860679_0.006997251233593751_2.5e-10_1000000',
               '-0.749988802386 +i0.006997251234',
@@ -190,6 +196,21 @@ console.log('<!doctype html>',
               '-0.1827180644448 +i0.6614075685543',
               `Now we are at 70,000,000,000× magnification  in the
                    hip, deep down a spiral we find this area sandwiched between two spiral areas.`),
+            mandelbrot(
+              '-1.5367297734418115_0.004880842533422578_1.4551915228366852e-11_100000',
+              '-1.5367297734418 +i0.0048808425334',
+              'Still at 70,000,000,000× magnification in a little spine off the probiscus,',
+              'we find this square structure.'),
+            mandelbrot(
+              '0.44518774607945466_-0.2436548964460257_7.275957614183426e-12_100000',
+              '0.44518774607945 -i0.24365489644603',
+              'Now we are at 140,000,000,000× magnification off the buttocks of the main beetle,',
+              'at the very end of the probiscus of a small beetle.'),
+            mandelbrot(
+              '-1.1670691126047892_-0.29169804375500624_7.275957614183426e-12_100000',
+              '-1.16706911260479 -i0.29169804375501',
+              'Still at at 140,000,000,000× magnification on the buttocks of a small beetle',
+              'that is off the ears of the main beetle.'),
             mandelbrot(
               '-0.596360784631783_0.662749653789278_5e-12_1000000',
               '-0.59636078463178 +i0.66274965378928',
