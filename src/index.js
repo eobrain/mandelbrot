@@ -72,9 +72,9 @@ console.log('<!doctype html>',
             c,
             'such that if you repeatedly iterate',
             z, '←', z + '² +', c, 'starting at', z + '=0 the value of |' + z +
-            '| stays less than 2. The colored areas surrounding the black of the Mandelbrot set are values of',
+          '| stays less than 2. The colored areas surrounding the black of the Mandelbrot set are values of',
             c, 'for which', z, 'eventually goes to infinity, with the colors indicating how many iterations until |' + z +
-            '|>2'),
+          '|>2'),
           p(`You will also notice a subtle shading which seems to show relief.
                    This is done by considering that the colored bands to be contours on a map
                    and shading it accordingly to show the slope.`,
@@ -247,10 +247,16 @@ console.log('<!doctype html>',
               '-1.6744096746527197_0.0000471656987933374_2e-13_1000000',
               '-1.6744096746527197 +i0.0000471656987933374',
               `This lovely structure in the neck of a beetle on the proboscis,
-                  at 5,000,000,000,000× is about as deep as we can go
-                  using the current implementation of the almondbread software which
-                  uses 64-bit double-precision values. Zooming more starts to reveal
-                  spacial quantization caused by numerical effects.`)
+                  at 5,000,000,000,000× is about as deep as we could go
+                  using the previous implementation of the almondbread software which
+                  used 64-bit double-precision values. Zooming more starts to reveal
+                  spacial quantization caused by numerical effects.`),
+            mandelbrot(
+              '-0.24482766477704102_0.8132688560198666_8.881784197001252e-16_10000',
+              '-0.24482766477704102 +i0.8132688560198666',
+              'Modifying the almondbread software to use 80-bit double-precision values',
+              'allows zooming to this unsusal short linear feature at',
+              '1,000,000,000,000,000× (one quadrillion) magnification.')
           ),
           section(
             p({
