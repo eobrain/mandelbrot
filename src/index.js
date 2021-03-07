@@ -130,6 +130,11 @@ console.log('<!doctype html>',
               'zooming in a bit to 10,000×',
               'we find this beautifully symmetric pair of spirals around a beetle.'),
             mandelbrot(
+              '-0.4827189505100249_0.53096650938193_0.0000019073486328125_10000000',
+              '-0.48271895 +i0.53096651',
+              'Deep in a cleft off the shoulder at 500,000× magnification is',
+              'this highly textured structure.'),
+            mandelbrot(
               '0.14886589182917292_0.6424077238777159_5e-7_100000',
               '0.148865892 +i0.642407724',
               `And now at 2,000,000× magnification we first zoom into the hips
