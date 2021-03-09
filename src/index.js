@@ -124,6 +124,10 @@ console.log('<!doctype html>',
               'Higher up on the shoulder at 8,000× magnification we find these two spirals',
               'trapping a beetle between them.'),
             mandelbrot(
+              '0.3593823115030921_-0.09108753204345725_0.0001220703125_100000',
+              '0.35938 -i0.09109',
+              'Just off the buttox of the main beetle at 8,000× there is this square structure.'),
+            mandelbrot(
               '-0.7452629166666667_-0.11304177083333333_0.0001_1000000',
               '-0.745263 -i0.113042',
               'And even further up into the cleft between the head and body,',
@@ -214,8 +218,17 @@ console.log('<!doctype html>',
             mandelbrot(
               '-1.1670691126047892_-0.29169804375500624_7.275957614183426e-12_100000',
               '-1.16706911260479 -i0.29169804375501',
-              'Still at at 140,000,000,000× magnification on the buttocks of a small beetle',
+              'Still at 140,000,000,000× magnification on the buttocks of a small beetle',
               'that is off the ears of the main beetle.'),
+            mandelbrot(
+              '-1.254999187233087_0.32578646797963223_7.275957614183426e-12_100000',
+              '-1.25499918723309 +i0.32578646797963',
+              'Staying at 140,000,000,000× off the head of a beetle that itself is off the head of the main beetle'),
+            mandelbrot(
+              '-0.7233981689664082_0.1940650381941092_7.275957614183426e-12_100000',
+              '-0.72339816896641 +i0.19406503819411',
+              'Yet again at 140,000,000,000× on the shoulder of a beetle that is off the shoulder of the main beetle',
+              'is this richly textured velvet.'),
             mandelbrot(
               '-0.596360784631783_0.662749653789278_5e-12_1000000',
               '-0.59636078463178 +i0.66274965378928',
