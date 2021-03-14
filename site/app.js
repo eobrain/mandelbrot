@@ -1,5 +1,8 @@
 /* global galleryFigureElement, galleryImageElement, prevElement, exitElement, nextElement */
 
+const HD_WIDTH_PX = 1920 * 2
+const HD_HEIGHT_PX = 1080 * 2
+
 // Credit: Dan https://stackoverflow.com/a/7557433/978525
 const isElementInViewport = el => {
   const rect = el.getBoundingClientRect()
@@ -8,9 +11,9 @@ const isElementInViewport = el => {
 
   return (
     rect.bottom >= 0 &&
-        rect.left >= 0 &&
-        rect.top <= (innerHeight || clientHeight) &&
-        rect.right <= (innerWidth || clientWidth)
+    rect.left >= 0 &&
+    rect.top <= (innerHeight || clientHeight) &&
+    rect.right <= (innerWidth || clientWidth)
   )
 }
 
@@ -33,9 +36,41 @@ const showVisible = () => {
   })
 }
 
+const px = x => `${x}px`
+
+const setGalleryImageSize = (width, height) => {
+  galleryImageElement.style.width = px(width)
+  galleryImageElement.style.height = px(height)
+}
+
+let zoomed = false
+galleryImageElement.onclick = ({ clientX, clientY }) => {
+  const classes = galleryImageElement.classList
+  if (zoomed) {
+    classes.remove('zoom')
+    setGalleryImageSize(window.screen.width,
+      window.screen.width * HD_HEIGHT_PX / HD_WIDTH_PX)
+    galleryImageElement.style.left = 0
+    galleryImageElement.style.top = 0
+  } else {
+    classes.add('zoom')
+    setGalleryImageSize(HD_WIDTH_PX, HD_HEIGHT_PX)
+    galleryImageElement.style.left = px(window.screen.width / 2 - HD_WIDTH_PX * clientX / window.screen.width)
+    galleryImageElement.style.top = px(window.screen.height / 2 - HD_WIDTH_PX * clientY / window.screen.width)
+  }
+  zoomed = !zoomed
+}
+
 const showGallery = (hrefs, i) => {
   galleryFigureElement.classList.add('shown')
+  document.body.classList.add('gallery-shown')
+  exitElement.onclick = () => {
+    galleryFigureElement.classList.remove('shown')
+    document.body.classList.remove('gallery-shown')
+  }
   galleryImageElement.setAttribute('src', hrefs[i])
+  setGalleryImageSize(window.screen.width,
+    window.screen.width * HD_HEIGHT_PX / HD_WIDTH_PX)
   const n = hrefs.length
   prevElement.onclick = () => {
     const iPrev = (i + n - 1) % n
@@ -46,9 +81,6 @@ const showGallery = (hrefs, i) => {
     const iNext = (i + 1) % n
     window.location = `#fig-${iNext}`
     showGallery(hrefs, iNext)
-  }
-  exitElement.onclick = () => {
-    galleryFigureElement.classList.remove('shown')
   }
 }
 
@@ -69,10 +101,3 @@ document.body.onload = () => {
     }
   }
 }
-
-/* window.onpopstate = event => {
-  if (!event.state) {
-    return
-  }
-  showGallery(event.state.hrefs, event.state.i)
-} */

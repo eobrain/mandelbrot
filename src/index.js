@@ -282,10 +282,10 @@ console.log('<!doctype html>',
           ),
           section(
             figure({ id: 'galleryFigureElement' },
+              img({ id: 'galleryImageElement' }),
               button({ id: 'prevElement' }, 'Previous'),
               button({ id: 'exitElement' }, 'Exit'),
               button({ id: 'nextElement' }, 'Next'),
-              img({ id: 'galleryImageElement' }),
               figcaption({ id: 'galleryCaptionElement' }))
           ),
           section(
