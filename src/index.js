@@ -2,6 +2,9 @@ import {
   a,
   article,
   body,
+  button,
+  figure,
+  figcaption,
   h1,
   h2,
   head,
@@ -34,6 +37,7 @@ console.log('<!doctype html>',
       title('Exploring the Mandelbrot Set'),
       link({ rel: 'stylesheet', href: 'tufte-css-gh-pages/tufte.min.css' }),
       link({ rel: 'stylesheet', href: 'tufte-css-gh-pages/latex.css' }),
+      link({ rel: 'stylesheet', href: 'gallery.css' }),
       meta({ name: 'viewport', content: 'width=device-width, initial-scale=1' }),
       link({ rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }),
       link({ rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }),
@@ -275,6 +279,14 @@ console.log('<!doctype html>',
               'Modifying the almondbread software to use 80-bit double-precision values',
               'allows zooming to this unsusal short linear feature at',
               '1,000,000,000,000,000× (one quadrillion) magnification.')
+          ),
+          section(
+            figure({ id: 'galleryFigureElement' },
+              button({ id: 'prevElement' }, 'Previous'),
+              button({ id: 'exitElement' }, 'Exit'),
+              button({ id: 'nextElement' }, 'Next'),
+              img({ id: 'galleryImageElement' }),
+              figcaption({ id: 'galleryCaptionElement' }))
           ),
           section(
             p({
