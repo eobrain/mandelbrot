@@ -2,7 +2,6 @@ import {
   a,
   article,
   body,
-  button,
   figure,
   figcaption,
   h1,
@@ -283,9 +282,6 @@ console.log('<!doctype html>',
           section(
             figure({ id: 'galleryFigureElement' },
               img({ id: 'galleryImageElement' }),
-              button({ id: 'prevElement' }, 'Previous'),
-              button({ id: 'exitElement' }, 'Exit'),
-              button({ id: 'nextElement' }, 'Next'),
               figcaption({ id: 'galleryCaptionElement' }))
           ),
           section(

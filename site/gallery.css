@@ -37,3 +37,19 @@ button {
 body.gallery-shown {
     overflow: hidden;
 }
+
+#prevElement, #nextElement {
+    z-index: 1001;
+    top: 45vh;
+    position: absolute;
+    width: 10vh;
+    filter: opacity(50%) drop-shadow(2px 2px 2px blue);
+}
+
+#prevElement {
+    left: 0;
+}
+
+#nextElement {
+    left: calc(100vw - 10vh);
+}
