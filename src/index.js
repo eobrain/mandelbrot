@@ -2,8 +2,6 @@ import {
   a,
   article,
   body,
-  figure,
-  figcaption,
   h1,
   h2,
   head,
@@ -278,11 +276,6 @@ console.log('<!doctype html>',
               'Modifying the almondbread software to use 80-bit double-precision values',
               'allows zooming to this unsusal short linear feature at',
               '1,000,000,000,000,000× (one quadrillion) magnification.')
-          ),
-          section(
-            figure({ id: 'galleryFigureElement' },
-              img({ id: 'galleryImageElement' }),
-              figcaption({ id: 'galleryCaptionElement' }))
           ),
           section(
             p({
