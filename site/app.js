@@ -46,18 +46,23 @@ const setGalleryImageSize = (width, height) => {
 let zoomed = false
 galleryImageElement.onclick = event => {
   const { offsetX, offsetY } = event
+  const { clientWidth, clientHeight } = document.documentElement
   const classes = galleryImageElement.classList
-  const imageHeight = document.documentElement.clientWidth * HD_HEIGHT_PX / HD_WIDTH_PX
+  const imageHeight = clientWidth * HD_HEIGHT_PX / HD_WIDTH_PX
   if (zoomed) {
     classes.remove('zoom')
-    setGalleryImageSize(document.documentElement.clientWidth, imageHeight)
-    galleryImageElement.style.left = 0
-    galleryImageElement.style.top = px((document.documentElement.clientHeight - imageHeight) / 2)
+    setGalleryImageSize(clientWidth, imageHeight)
+    // galleryImageElement.style.marginLeft = 0
+    // galleryImageElement.style.marginTop = px((clientHeight - imageHeight) / 2)
   } else {
     classes.add('zoom')
     setGalleryImageSize(HD_WIDTH_PX, HD_HEIGHT_PX)
-    galleryImageElement.style.left = px(document.documentElement.clientWidth / 2 - HD_WIDTH_PX * offsetX / document.documentElement.clientWidth)
-    galleryImageElement.style.top = px(document.documentElement.clientHeight / 2 - HD_HEIGHT_PX * offsetY / imageHeight)
+    setTimeout(() => {
+      galleryImageElement.scrollTo(HD_WIDTH_PX * offsetX / clientWidth - clientWidth / 2,
+        HD_HEIGHT_PX * offsetY / imageHeight - clientHeight / 2)
+    }, 10)
+    // galleryImageElement.style.marginLeft = px(clientWidth / 2 - HD_WIDTH_PX * offsetX / clientWidth)
+    // galleryImageElement.style.marginTop = px(clientHeight / 2 - HD_HEIGHT_PX * offsetY / imageHeight)
   }
   zoomed = !zoomed
   event.stopPropagation()
@@ -86,13 +91,14 @@ window.addEventListener('keydown', ({ key }) => {
 })
 
 const showGallery = (hrefs, i) => {
+  const { clientWidth, clientHeight } = document.documentElement
   galleryFigureElement.classList.add('shown')
   document.body.classList.add('gallery-shown')
   galleryImageElement.setAttribute('src', hrefs[i])
-  const imageHeight = document.documentElement.clientWidth * HD_HEIGHT_PX / HD_WIDTH_PX
-  setGalleryImageSize(document.documentElement.clientWidth, imageHeight)
-  galleryImageElement.style.left = 0
-  galleryImageElement.style.top = px((document.documentElement.clientHeight - imageHeight) / 2)
+  const imageHeight = clientWidth * HD_HEIGHT_PX / HD_WIDTH_PX
+  setGalleryImageSize(clientWidth, imageHeight)
+  // galleryImageElement.style.marginLeft = 0
+  // galleryImageElement.style.marginTop = px((clientHeight - imageHeight) / 2)
   const n = hrefs.length
   onExit = galleryFigureElement.onclick = () => {
     galleryFigureElement.classList.remove('shown')

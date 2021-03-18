@@ -17,6 +17,7 @@ button {
 
 #galleryFigureElement.shown {
     display: block;
+    overflow: scroll;
 }
 
 #galleryImageElement {
@@ -25,8 +26,8 @@ button {
     left: 0;
     position: absolute;
     max-width: unset;
-    transition-property: top, left, width, height;
-    transition-duration: 1s;
+    /*transition-property: margin, width, height;
+    transition-duration: 0.1s;*/
     cursor: crosshair;
 }
 
