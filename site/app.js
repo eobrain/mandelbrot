@@ -19,16 +19,6 @@ const showVisible = () => {
       el.removeAttribute('data-defer')
     }
   })
-  document.querySelectorAll('figure > .marginnote > video > source[data-defer]').forEach(el => {
-    const video = el.parentElement
-    const figure = video.parentElement.parentElement
-    if (isElementInViewport(figure)) {
-      el.src = el.dataset.defer
-      el.removeAttribute('data-defer')
-      video.load()
-      video.play()
-    }
-  })
 }
 
 document.body.onload = () => {
