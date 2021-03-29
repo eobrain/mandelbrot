@@ -1,7 +1,7 @@
 [serve]
-deps=["site/index.html"]
+deps=["site/index.html", "site/bw.html"]
 exec="cd site && python -m SimpleHTTPServer 8888"
 
-["site/index.html"]
-deps=["src/index.js", "src/custom.js"]
+["site/%.html"]
+deps=["src/%.js", "src/page.js", "src/custom.js"]
 exec="node $< >$@"
