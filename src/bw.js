@@ -33,5 +33,10 @@ console.log(page(section(
   mandelbrot(
     '-0.10375257638744859_0.9250308323744141_2.842170943040401e-14_100000_bw',
     '-0.103752576387449 +i0.9250308323744141',
-    'At 35,000,000,000,000× (35 quadrillion) magnification.',
-    'If the Mandelbot set were the size of the Earth this image would be 160 nm wide.'))))
+    'At 35,000,000,000,000× (35 trillion) magnification.',
+    'If the Mandelbot set were the size of the Earth this image would be 160 nm wide.'),
+  mandelbrot(
+    '-1.3551734861174762_0.04053190336270575_8.881784197001252e-16_1000000_bw',
+    '-1.3551734861174762 +i0.04053190336270575',
+    'At 1,000,000,000,000,000× (1 quadrillion) magnification.',
+    'If the Mandelbot set were the size of the Earth this image would be 50 Å wide.'))))

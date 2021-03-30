@@ -194,7 +194,7 @@ console.log(page(
       '-1.6744096746527197_0.0000471656987933374_2e-13_1000000',
       '-1.6744096746527197 +i0.0000471656987933374',
                   `This lovely structure in the neck of a beetle on the proboscis,
-          at 5,000,000,000,000× is about as deep as we could go
+          at 5,000,000,000,000× (5 trillion) is about as deep as we could go
           using the previous implementation of the almondbread software which
           used 64-bit double-precision values. Zooming more starts to reveal
           spacial quantization caused by numerical effects.`),
