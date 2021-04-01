@@ -2,9 +2,12 @@ import page from './page.js'
 
 import {
   a,
+  figure,
   h2,
   p,
-  section
+  section,
+  source,
+  video
 } from 'ez-html-elements'
 import { mandelbrot } from './custom.js'
 
@@ -36,7 +39,19 @@ console.log(page(section(
     'At 35,000,000,000,000× (35 trillion) magnification.',
     'If the Mandelbot set were the size of the Earth this image would be 160 nm wide.'),
   mandelbrot(
+    '-0.24482766477704102_0.8132688560198666_8.881784197001252e-16_10000_bw',
+    '-0.24482766477704102 +i0.8132688560198666',
+    'Modifying the almondbread software to use 80-bit double-precision values',
+    'allows zooming to this unsusal short linear feature at',
+    '1,000,000,000,000,000× (one quadrillion) magnification.'),
+  mandelbrot(
     '-1.3551734861174762_0.04053190336270575_8.881784197001252e-16_1000000_bw',
     '-1.3551734861174762 +i0.04053190336270575',
-    'At 1,000,000,000,000,000× (1 quadrillion) magnification.',
-    'If the Mandelbot set were the size of the Earth this image would be 50 Å wide.'))))
+    'Another image ar 1,000,000,000,000,000× (1 quadrillion) magnification.',
+    'If the Mandelbot set were the size of the Earth this image would be 50 Å wide.'),
+  figure(['fullwidth'],
+    video({ loop: true, controls: true },
+      source({
+        src: '/img/slow-1920x1080_-1.3551734861174762_0.04053190336270575_8.881784197001252e-16_1000000_bw.mp4',
+        type: 'video/mp4'
+      }))))))
