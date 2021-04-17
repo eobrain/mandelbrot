@@ -2,12 +2,9 @@ import page from './page.js'
 
 import {
   a,
-  figure,
   h2,
   p,
-  section,
-  source,
-  video
+  section
 } from 'ez-html-elements'
 import { mandelbrot } from './custom.js'
 
@@ -48,10 +45,5 @@ console.log(page(section(
     '-1.3551734861174762_0.04053190336270575_8.881784197001252e-16_1000000_bw',
     '-1.3551734861174762 +i0.04053190336270575',
     'Another image ar 1,000,000,000,000,000× (1 quadrillion) magnification.',
-    'If the Mandelbot set were the size of the Earth this image would be 50 Å wide.'),
-  figure(['fullwidth'],
-    video({ loop: true, controls: true },
-      source({
-        src: '/img/slow-1920x1080_-1.3551734861174762_0.04053190336270575_8.881784197001252e-16_1000000_bw.mp4',
-        type: 'video/mp4'
-      }))))))
+    'If the Mandelbot set were the size of the Earth this image would be 50 Å wide.')
+)))
