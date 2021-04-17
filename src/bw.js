@@ -36,6 +36,11 @@ console.log(page(section(
     'At 35,000,000,000,000× (35 trillion) magnification.',
     'If the Mandelbot set were the size of the Earth this image would be 160 nm wide.'),
   mandelbrot(
+    '-1.0415381544949494_0.2664178451616266_2.842170943040401e-14_1000000',
+    '-1.041538154494949 +i0.266417845161627',
+    'At 35,000,000,000,000× (35 trillion) magnification.',
+    'If the Mandelbot set were the size of the Earth this image would be 160 nm wide.'),
+  mandelbrot(
     '-0.24482766477704102_0.8132688560198666_8.881784197001252e-16_10000_bw',
     '-0.24482766477704102 +i0.8132688560198666',
     'Modifying the almondbread software to use 80-bit double-precision values',
